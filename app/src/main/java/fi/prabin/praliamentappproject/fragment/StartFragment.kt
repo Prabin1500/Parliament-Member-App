@@ -43,6 +43,14 @@ class StartFragment : Fragment() {
         viewModel.saveExtraInfoToRoomDatabase()
 
         viewModel.saveToRoomDatabase()
+
+        binding.button.setOnClickListener{
+            viewModel.saveExtraInfoToRoomDatabase()
+
+            viewModel.saveToRoomDatabase()
+            findNavController().navigate(R.id.action_startFragment_to_partyListFragment)
+
+        }
         return view
 
     }

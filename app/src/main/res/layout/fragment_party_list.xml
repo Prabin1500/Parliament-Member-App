@@ -5,10 +5,13 @@
     android:layout_height="match_parent"
     tools:context=".fragment.PartyListFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/partyRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:clipToPadding="false"
+        android:layout_marginTop="5sp"
+        android:layout_marginBottom="0sp"
+        android:padding="16dp" />
 
 </FrameLayout>
