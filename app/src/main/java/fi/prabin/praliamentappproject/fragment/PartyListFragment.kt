@@ -27,8 +27,9 @@ class PartyListFragment : Fragment() {
 
     private val binding get() = _binding!!
 
-    var party = ArrayList<String>()
+    var bundle = Bundle()
 
+    var party = ArrayList<String>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -72,7 +73,8 @@ class PartyListFragment : Fragment() {
             adapter.setOnItemClickListener(object : PartyListAdapter.OnItemClickListener {
                 override fun onItemClick(position: Int) {
                     Log.d("CLicked parties", party[position])
-                    findNavController().navigate(R.id.action_partyListFragment_to_memberListFragment)
+                    bundle = bundleOf("party" to party[position])
+                    findNavController().navigate(R.id.action_partyListFragment_to_memberListFragment,bundle)
                 }
             })
         }
