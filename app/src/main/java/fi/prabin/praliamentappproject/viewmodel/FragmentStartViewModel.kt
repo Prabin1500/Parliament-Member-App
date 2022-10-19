@@ -38,7 +38,7 @@ class FragmentStartViewModel(application: Application) : AndroidViewModel(applic
         }
     }
 
-    //Save member informatino to the room database
+    //Save member information to the room database
     fun saveToRoomDatabase() {
         val newMembersList: List<ParliamentMemberInfo>? = _membersList.value
 
