@@ -72,9 +72,7 @@ class MemberListFragment : Fragment() {
 
                     Log.d("CLicked members", members[position].firstname)
 
-                    findNavController().navigate(
-                        R.id.action_memberListFragment_to_memberDetailFragment
-                    )
+                    findNavController().navigate(R.id.action_memberListFragment_to_memberDetailFragment)
                 }
             })
         }
