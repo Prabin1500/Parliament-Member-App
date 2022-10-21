@@ -23,6 +23,7 @@ class FragmentMemberDetailViewModel(application: Application) : AndroidViewModel
         ParliamentMemberRoomDatabase.getDatabase(application).parliamentMemberExtraInfoDao()
     )
 
+
     //Get all members data from the Room Database
     fun getAllMemberInfo(){
         viewModelScope.launch {

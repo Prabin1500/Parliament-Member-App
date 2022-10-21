@@ -28,6 +28,8 @@ class MemberListFragment : Fragment() {
 
     var party : String? = ""
 
+    var bundle = Bundle()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -71,8 +73,9 @@ class MemberListFragment : Fragment() {
                 override fun onItemClick(position: Int) {
 
                     Log.d("CLicked members", members[position].firstname)
+                    bundle.putInt("hetekaID",members[position].hetekaId)
 
-                    findNavController().navigate(R.id.action_memberListFragment_to_memberDetailFragment)
+                    findNavController().navigate(R.id.action_memberListFragment_to_memberDetailFragment,bundle)
                 }
             })
         }
