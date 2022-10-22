@@ -20,7 +20,8 @@ class FragmentMemberDetailViewModel(application: Application) : AndroidViewModel
     //Initialize the repository
     private val parliamentMemberInfoRepository = ParliamentMemberInfoRepository(
         ParliamentMemberRoomDatabase.getDatabase(application).parliamentMemberInfoDao(),
-        ParliamentMemberRoomDatabase.getDatabase(application).parliamentMemberExtraInfoDao()
+        ParliamentMemberRoomDatabase.getDatabase(application).parliamentMemberExtraInfoDao(),
+        ParliamentMemberRoomDatabase.getDatabase(application).getNotesDao()
     )
 
 

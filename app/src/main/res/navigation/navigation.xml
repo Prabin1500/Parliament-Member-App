@@ -36,5 +36,14 @@
         android:id="@+id/memberDetailFragment"
         android:name="fi.prabin.praliamentappproject.fragment.MemberDetailFragment"
         android:label="fragment_member_detail"
-        tools:layout="@layout/fragment_member_detail" />
+        tools:layout="@layout/fragment_member_detail" >
+        <action
+            android:id="@+id/action_memberDetailFragment_to_noteFragment"
+            app:destination="@id/noteFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/noteFragment"
+        android:name="fi.prabin.praliamentappproject.fragment.NoteFragment"
+        android:label="fragment_note"
+        tools:layout="@layout/fragment_note" />
 </navigation>

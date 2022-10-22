@@ -12,4 +12,6 @@
     <string name="party">Party</string>
     <string name="write_a_note">Write a note</string>
     <string name="birth_date">Birth date : </string>
+    <string name="write_a_note_for_mp">Write a note for MP</string>
+    <string name="save_button">Save</string>
 </resources>

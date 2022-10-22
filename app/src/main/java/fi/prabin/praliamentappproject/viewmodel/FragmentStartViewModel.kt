@@ -23,7 +23,8 @@ class FragmentStartViewModel(application: Application) : AndroidViewModel(applic
     //Initialize the repository
     private val parliamentMemberInfoRepository = ParliamentMemberInfoRepository(
         ParliamentMemberRoomDatabase.getDatabase(application).parliamentMemberInfoDao(),
-        ParliamentMemberRoomDatabase.getDatabase(application).parliamentMemberExtraInfoDao()
+        ParliamentMemberRoomDatabase.getDatabase(application).parliamentMemberExtraInfoDao(),
+        ParliamentMemberRoomDatabase.getDatabase(application).getNotesDao()
     )
 
     //get member information from the network

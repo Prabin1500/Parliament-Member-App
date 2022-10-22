@@ -4,11 +4,13 @@ import androidx.lifecycle.LiveData
 
 class ParliamentMemberInfoRepository(
     private val parliamentMembersInfoDao : ParliamentMemberInfoDao,
-    private val parliamentMemberExtraInfoDao: ParliamentMemberExtraInfoDao
+    private val parliamentMemberExtraInfoDao: ParliamentMemberExtraInfoDao,
+    private val notesDao: NotesDao
 ) {
 
     val readAllMemberInfo = parliamentMembersInfoDao.getAllData()
     val readAllExtraInfo = parliamentMemberExtraInfoDao.getAllExtraData()
+    val allNotes: LiveData<List<Note>> = notesDao.getAllNotes()
 
     suspend fun addAllMembers(members : List<ParliamentMemberInfo>) =
         parliamentMembersInfoDao.insertAllMembers(members)
@@ -25,5 +27,13 @@ class ParliamentMemberInfoRepository(
     suspend fun addMember(member: List<ParliamentMemberInfo>) =
         parliamentMembersInfoDao.insertAllMembers(member)
 
+    //For storing, deleting and updating Notes
+    suspend fun insert(note: Note) {
+        notesDao.insert(note)
+    }
+
+    suspend fun delete(note: Note){
+        notesDao.delete(note)
+    }
 
 }

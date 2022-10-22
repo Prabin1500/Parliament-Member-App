@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
 import fi.prabin.praliamentappproject.R
 import fi.prabin.praliamentappproject.databinding.FragmentMemberDetailBinding
@@ -22,6 +23,7 @@ class MemberDetailFragment : Fragment() {
 
     private lateinit var viewModel : FragmentMemberDetailViewModel
 
+    var bundle = Bundle()
     var hetekaId : Int? = null
     val baseUrl = "https://avoindata.eduskunta.fi/"
 
@@ -50,6 +52,13 @@ class MemberDetailFragment : Fragment() {
 
         viewModel.getAllMemberInfo()
         viewModel.getAllExtraInfo()
+
+        binding.writeANote.setOnClickListener{
+            hetekaId?.let { it1 ->
+                bundle.putInt("hetekaID", it1) }
+
+            findNavController().navigate(R.id.action_memberDetailFragment_to_noteFragment,bundle)
+        }
 
         //Observe the member detail in ViewModel and display the information
         viewModel.member.observe(viewLifecycleOwner){p ->
