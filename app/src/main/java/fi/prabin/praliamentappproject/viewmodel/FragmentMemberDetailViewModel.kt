@@ -2,10 +2,7 @@ package fi.prabin.praliamentappproject.viewmodel
 
 import android.app.Application
 import androidx.lifecycle.*
-import fi.prabin.praliamentappproject.database.ParliamentMemberExtraInfo
-import fi.prabin.praliamentappproject.database.ParliamentMemberInfo
-import fi.prabin.praliamentappproject.database.ParliamentMemberInfoRepository
-import fi.prabin.praliamentappproject.database.ParliamentMemberRoomDatabase
+import fi.prabin.praliamentappproject.database.*
 import kotlinx.coroutines.launch
 
 class FragmentMemberDetailViewModel(application: Application) : AndroidViewModel(application) {
@@ -21,8 +18,10 @@ class FragmentMemberDetailViewModel(application: Application) : AndroidViewModel
     private val parliamentMemberInfoRepository = ParliamentMemberInfoRepository(
         ParliamentMemberRoomDatabase.getDatabase(application).parliamentMemberInfoDao(),
         ParliamentMemberRoomDatabase.getDatabase(application).parliamentMemberExtraInfoDao(),
-        ParliamentMemberRoomDatabase.getDatabase(application).getNotesDao()
+        ParliamentMemberRoomDatabase.getDatabase(application).getNotesDao(),
+        ParliamentMemberRoomDatabase.getDatabase(application).getLikeDao()
     )
+    val allLikeInfo = parliamentMemberInfoRepository.allLikes
 
 
     //Get all members data from the Room Database
@@ -38,6 +37,18 @@ class FragmentMemberDetailViewModel(application: Application) : AndroidViewModel
     fun getAllExtraInfo(){
         viewModelScope.launch {
             _extraInfo.value = parliamentMemberInfoRepository.readAllExtraInfo
+        }
+    }
+
+    fun addLikeInfo(like : Like){
+        viewModelScope.launch {
+            parliamentMemberInfoRepository.addLikeCount(like)
+        }
+    }
+
+    fun updateInfo (like :Boolean, dislike : Boolean, id : Int?){
+        viewModelScope.launch {
+            parliamentMemberInfoRepository.updateLike(like, dislike, id)
         }
     }
 }

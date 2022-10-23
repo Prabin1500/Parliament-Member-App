@@ -130,6 +130,7 @@
                         android:layout_width="1sp"
                         android:layout_height="match_parent"
                         android:scaleType="fitXY"
+                        android:background="@drawable/ic_baseline_thumb_up_24"
                         android:layout_weight="1"/>
 
 
@@ -150,7 +151,8 @@
                         android:id="@+id/thumbsDown"
                         android:layout_width="1sp"
                         android:layout_height="match_parent"
-                        android:scaleType="fitCenter"
+                        android:scaleType="fitXY"
+                        android:background="@drawable/ic_baseline_thumb_down_24"
                         android:layout_weight="1" />
                 </LinearLayout>
 

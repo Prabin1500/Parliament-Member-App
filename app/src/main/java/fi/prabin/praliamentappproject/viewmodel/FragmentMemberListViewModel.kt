@@ -22,7 +22,8 @@ class FragmentMemberListViewModel(application: Application) : AndroidViewModel(a
     private val parliamentMemberInfoRepository = ParliamentMemberInfoRepository(
         ParliamentMemberRoomDatabase.getDatabase(application).parliamentMemberInfoDao(),
         ParliamentMemberRoomDatabase.getDatabase(application).parliamentMemberExtraInfoDao(),
-        ParliamentMemberRoomDatabase.getDatabase(application).getNotesDao()
+        ParliamentMemberRoomDatabase.getDatabase(application).getNotesDao(),
+        ParliamentMemberRoomDatabase.getDatabase(application).getLikeDao()
     )
 
     /**

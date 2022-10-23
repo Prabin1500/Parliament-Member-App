@@ -13,7 +13,8 @@ class NoteViewModel (application: Application) : AndroidViewModel(application) {
     private val parliamentMemberInfoRepository = ParliamentMemberInfoRepository(
         ParliamentMemberRoomDatabase.getDatabase(application).parliamentMemberInfoDao(),
         ParliamentMemberRoomDatabase.getDatabase(application).parliamentMemberExtraInfoDao(),
-        ParliamentMemberRoomDatabase.getDatabase(application).getNotesDao()
+        ParliamentMemberRoomDatabase.getDatabase(application).getNotesDao(),
+        ParliamentMemberRoomDatabase.getDatabase(application).getLikeDao()
     )
 
     val allNotes : LiveData<List<Note>> = parliamentMemberInfoRepository.allNotes

@@ -5,14 +5,15 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 
-@Database(entities = [ParliamentMemberInfo::class, ParliamentMemberExtraInfo::class,Note::class],
-    version = 1, exportSchema = false)
+@Database(entities = [ParliamentMemberInfo::class, ParliamentMemberExtraInfo::class,Note::class, Like::class],
+    version = 2, exportSchema = false)
 
 abstract class ParliamentMemberRoomDatabase : RoomDatabase() {
 
     abstract fun parliamentMemberInfoDao() : ParliamentMemberInfoDao
     abstract fun parliamentMemberExtraInfoDao() : ParliamentMemberExtraInfoDao
     abstract fun getNotesDao(): NotesDao
+    abstract fun getLikeDao(): LikeDao
 
     companion object {
         @Volatile
